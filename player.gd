@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var movespeed: float = 300
-@export var jumpforce: float = -300
+@export var jumpforce: float = -500
 @export var health: int = 3
 @export var knockback_distance = 1000
 

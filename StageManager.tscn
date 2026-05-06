@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://wbmtprl2dxke"]
 
 [ext_resource type="Script" uid="uid://4se5mv051i7y" path="res://stage_manager.gd" id="1_8u56n"]
-[ext_resource type="PackedScene" uid="uid://b0sv4pfdp3cka" path="res://Level.tscn" id="2_o7t16"]
+[ext_resource type="PackedScene" uid="uid://jubajs83wywu" path="res://Level.tscn" id="2_o7t16"]
 [ext_resource type="PackedScene" uid="uid://dkix548xdmnkq" path="res://HUD.tscn" id="3_o7t16"]
 
 [node name="StageManager" type="Node2D"]
@@ -11,6 +11,5 @@ current_level_scene = ExtResource("2_o7t16")
 [node name="LevelContainer" type="Node2D" parent="."]
 
 [node name="Level" parent="LevelContainer" instance=ExtResource("2_o7t16")]
-position = Vector2(97, 61)
 
 [node name="Hud" parent="." instance=ExtResource("3_o7t16")]
