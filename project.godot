@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="플랫포머스터"
+config/name="플랫포머스터디"
 run/main_scene="uid://wbmtprl2dxke"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"

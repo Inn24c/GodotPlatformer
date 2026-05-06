@@ -21,17 +21,6 @@ func _physics_process(delta: float) -> void:
 			position.y += 2
 		elif is_on_floor():
 			velocity.y = jumpforce
-	
-	#for i in get_slide_collision_count():
-		#var collision = get_slide_collision(i)
-		#if collision:
-			#var col = collision.get_collider()
-			#if col.is_in_group("monster"):
-				#change_health(-1)
-				#var knockback_dir = sign(global_position.x - col.global_position.x)
-				#if knockback_dir == 0:
-					#knockback_dir = -1
-				#velocity.x = knockback_dir * knockback_distance
 
 	move_and_slide()
 

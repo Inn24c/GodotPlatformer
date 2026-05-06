@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://k8egjh2cvb1j"]
+[gd_scene load_steps=8 format=4 uid="uid://k8egjh2cvb1j"]
 
 [ext_resource type="Script" uid="uid://dovpcdbfbhx7h" path="res://level.gd" id="1_wwdpc"]
 [ext_resource type="Texture2D" uid="uid://baqe5fiibft51" path="res://asset/brackeys_platformer_assets/sprites/world_tileset.png" id="2_6faey"]
 [ext_resource type="PackedScene" uid="uid://bji6urd7bo1th" path="res://Player.tscn" id="3_nc7oo"]
 [ext_resource type="PackedScene" uid="uid://c1tgo0nt2dxpt" path="res://Monster.tscn" id="4_6x3wt"]
 [ext_resource type="PackedScene" uid="uid://c4pbufwgs06aq" path="res://Fruit.tscn" id="5_3453u"]
-[ext_resource type="PackedScene" uid="uid://cav4arv8jkk0s" path="res://Goal.tscn" id="6_46pvi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7iv1"]
 texture = ExtResource("2_6faey")
@@ -166,6 +165,3 @@ position = Vector2(553, 292)
 
 [node name="Fruit" parent="." instance=ExtResource("5_3453u")]
 position = Vector2(168, 248)
-
-[node name="Goal" parent="." instance=ExtResource("6_46pvi")]
-position = Vector2(441, 248)
