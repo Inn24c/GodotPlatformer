@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bji6urd7bo1th"]
+
+[ext_resource type="Script" uid="uid://cwvthurgin1mq" path="res://player.gd" id="1_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://4u1x2px42nct" path="res://asset/brackeys_platformer_assets/sprites/knight.png" id="2_kne1u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e80uo"]
+atlas = ExtResource("2_kne1u")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cxr5p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e80uo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
+size = Vector2(15, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kne1u"]
+size = Vector2(17, 23)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+position = Vector2(1, -1)
+script = ExtResource("1_kpjcp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -1)
+sprite_frames = SubResource("SpriteFrames_cxr5p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 1.5)
+shape = SubResource("RectangleShape2D_kpjcp")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-1.5, 1.5)
+shape = SubResource("RectangleShape2D_kne1u")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4pbufwgs06aq"]
+
+[ext_resource type="Script" uid="uid://dks8nopina7no" path="res://fruit.gd" id="1_ojx6h"]
+[ext_resource type="Texture2D" uid="uid://c6aaspgtavjje" path="res://asset/brackeys_platformer_assets/sprites/fruit.png" id="2_xkhmj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mskd"]
+atlas = ExtResource("2_xkhmj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_002e0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mskd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnh40"]
+size = Vector2(13, 15)
+
+[node name="Fruit" type="Area2D" groups=["fruit"]]
+script = ExtResource("1_ojx6h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_002e0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_qnh40")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
