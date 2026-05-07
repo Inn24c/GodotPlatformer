@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var health: int = 3
 @export var knockback_distance = 1000
 
+@onready var animation_sprite = $AnimatedSprite2D
+
 signal damaged
 signal healed
 signal death
@@ -23,7 +25,21 @@ func _physics_process(delta: float) -> void:
 			velocity.y = jumpforce
 
 	move_and_slide()
+	update_animations()
 
+func update_animations():
+	if velocity.x > 0:
+		animation_sprite.flip_h = false
+	elif velocity.x < 0:
+		animation_sprite.flip_h = true
+	if is_on_floor():
+		if abs(velocity.x) > 0:
+			animation_sprite.play("run")
+		else:
+			animation_sprite.play("idle")
+	else:
+		animation_sprite.play("jump")
+	
 func monster_collide(monster):
 	change_health(-1)
 	var knockback_dir = sign(global_position.x - monster.global_position.x)

@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2mc7myueklrv"]
+
+[ext_resource type="Script" uid="uid://d1gdaco0af7xs" path="res://main.gd" id="1_glv2v"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_glv2v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 27.0
+offset_top = 508.0
+offset_right = 145.0
+offset_bottom = 624.0
+
+[node name="New Game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "New Game"
+
+[node name="Load Game" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Load Game"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Load Game" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
