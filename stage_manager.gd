@@ -3,12 +3,14 @@ extends Node2D
 @onready var level_container = $LevelContainer
 @onready var HUD = $Hud
 @onready var current_level = $LevelContainer/Level
-@export var current_level_scene: PackedScene
+@onready var current_level_scene: PackedScene = load(Savemanager.current_level_path)
 
 func _ready() -> void:
 	load_level(current_level_scene)
 
 func _on_level_stage_clear(level: PackedScene) -> void:
+	Savemanager.current_level_path = level.resource_path
+	Savemanager.save_data_to_file()
 	load_level(level)
 	
 func _on_level_player_health_changed(health: int) -> void:

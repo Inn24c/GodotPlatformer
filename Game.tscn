@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://u1bgtqaf4ts7"]
+
+[ext_resource type="PackedScene" uid="uid://wbmtprl2dxke" path="res://StageManager.tscn" id="1_wbfu4"]
+[ext_resource type="Script" uid="uid://cbp35877p1dqe" path="res://game.gd" id="1_xkndl"]
+
+[node name="Game" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_xkndl")
+
+[node name="StageManager" parent="." instance=ExtResource("1_wbfu4")]
+process_mode = 1
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" type="Control" parent="UILayer"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="UILayer/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -606.0
+offset_top = -352.0
+offset_right = 606.0
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.490196)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -33.0
+offset_right = 78.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="UILayer/PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Restart" type="Button" parent="UILayer/PauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="BackToMainMenu" type="Button" parent="UILayer/PauseMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="UILayer/PauseMenu/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="UILayer/PauseMenu/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="UILayer/PauseMenu/VBoxContainer/Restart" to="StageManager" method="_on_level_player_death"]
+[connection signal="pressed" from="UILayer/PauseMenu/VBoxContainer/BackToMainMenu" to="." method="_on_back_to_main_menu_pressed"]
